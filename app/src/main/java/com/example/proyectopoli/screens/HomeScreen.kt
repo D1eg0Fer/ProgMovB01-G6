@@ -40,7 +40,7 @@ fun HomeScreen() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Gym Tec", color = Color.White) },
+                    title = { Text("Gym Tec") },
                     navigationIcon = {
                         IconButton(onClick = {
                             scope.launch {
