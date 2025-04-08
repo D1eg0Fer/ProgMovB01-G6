@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.proyectopoli.model.MenuItem
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun DrawerItem(
@@ -24,9 +25,15 @@ fun DrawerItem(
     onItemClick: (MenuItem) -> Unit
 ) {
     val backgroundColor = if (selected) {
-        MaterialTheme.colorScheme.primaryContainer
+        Color(0xFFFFC0CB) // Rosado claro
     } else {
-        MaterialTheme.colorScheme.surface
+        Color.Transparent
+    }
+
+    val contentColor = if (selected) {
+        Color(0xFFFFEB3B) // Amarillo
+    } else {
+        Color.White
     }
 
     Row(
@@ -40,14 +47,14 @@ fun DrawerItem(
         Icon(
             imageVector = item.icon,
             contentDescription = item.title,
-            tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+            tint = contentColor
         )
         Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = item.title,
             style = MaterialTheme.typography.bodyLarge,
             fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
-            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+            color = contentColor
         )
     }
 }
